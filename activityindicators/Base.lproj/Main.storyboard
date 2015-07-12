@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="activityindicators" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9db-kS-48C" userLabel="Spin Activity Indicator" customClass="GLSSpinActivityIndicatorView" customModule="activityindicators" customModuleProvider="target">
+                                <rect key="frame" x="275" y="275" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="irv-0N-cg9"/>
+                                    <constraint firstAttribute="width" constant="50" id="kg3-Ke-2IO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="9db-kS-48C" secondAttribute="trailing" constant="162" id="DEp-W1-VwX"/>
+                            <constraint firstItem="9db-kS-48C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="INv-B2-YmN"/>
+                            <constraint firstItem="9db-kS-48C" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LwR-i7-tfE"/>
+                            <constraint firstItem="9db-kS-48C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="163" id="XX8-pk-2OP"/>
+                            <constraint firstAttribute="topMargin" secondItem="9db-kS-48C" secondAttribute="top" id="bQ9-SU-Biv"/>
+                            <constraint firstItem="9db-kS-48C" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="c7L-s4-Kll"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="DEp-W1-VwX"/>
+                                <exclude reference="XX8-pk-2OP"/>
+                                <exclude reference="bQ9-SU-Biv"/>
+                                <exclude reference="c7L-s4-Kll"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="9db-kS-48C" id="SOx-Py-YJO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="415"/>
+        </scene>
+    </scenes>
+</document>
