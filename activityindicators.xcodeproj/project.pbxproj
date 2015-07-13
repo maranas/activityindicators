@@ -14,6 +14,8 @@
 		809D7D9D1B51D6A500A462AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809D7D9B1B51D6A500A462AF /* LaunchScreen.storyboard */; };
 		809D7DA81B51D6A600A462AF /* activityindicatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D7DA71B51D6A600A462AF /* activityindicatorsTests.swift */; };
 		809D7DB81B51EF3500A462AF /* GLSSpinActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D7DB71B51EF3500A462AF /* GLSSpinActivityIndicatorView.swift */; };
+		80CA4CF11B54400B0058B20A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CA4CF01B54400B0058B20A /* logo.png */; };
+		80CA4CF31B54403D0058B20A /* GLSImageRotationsActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CA4CF21B54403D0058B20A /* GLSImageRotationsActivityIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		809D7DA71B51D6A600A462AF /* activityindicatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = activityindicatorsTests.swift; sourceTree = "<group>"; };
 		809D7DA91B51D6A600A462AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809D7DB71B51EF3500A462AF /* GLSSpinActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLSSpinActivityIndicatorView.swift; path = Classes/GLSSpinActivityIndicatorView.swift; sourceTree = "<group>"; };
+		80CA4CF01B54400B0058B20A /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		80CA4CF21B54403D0058B20A /* GLSImageRotationsActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLSImageRotationsActivityIndicatorView.swift; path = Classes/GLSImageRotationsActivityIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 				809D7D991B51D6A500A462AF /* Assets.xcassets */,
 				809D7D9B1B51D6A500A462AF /* LaunchScreen.storyboard */,
 				809D7D9E1B51D6A500A462AF /* Info.plist */,
+				80CA4CF01B54400B0058B20A /* logo.png */,
 				809D7DB41B51EEEE00A462AF /* Classes */,
 			);
 			path = activityindicators;
@@ -103,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				809D7DB71B51EF3500A462AF /* GLSSpinActivityIndicatorView.swift */,
+				80CA4CF21B54403D0058B20A /* GLSImageRotationsActivityIndicatorView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -187,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80CA4CF11B54400B0058B20A /* logo.png in Resources */,
 				809D7D9D1B51D6A500A462AF /* LaunchScreen.storyboard in Resources */,
 				809D7D9A1B51D6A500A462AF /* Assets.xcassets in Resources */,
 				809D7D981B51D6A500A462AF /* Main.storyboard in Resources */,
@@ -207,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80CA4CF31B54403D0058B20A /* GLSImageRotationsActivityIndicatorView.swift in Sources */,
 				809D7D951B51D6A500A462AF /* ViewController.swift in Sources */,
 				809D7DB81B51EF3500A462AF /* GLSSpinActivityIndicatorView.swift in Sources */,
 				809D7D931B51D6A500A462AF /* AppDelegate.swift in Sources */,
@@ -399,6 +407,7 @@
 				809D7DAE1B51D6A600A462AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		809D7DAF1B51D6A600A462AF /* Build configuration list for PBXNativeTarget "activityindicatorsTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +416,7 @@
 				809D7DB11B51D6A600A462AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
