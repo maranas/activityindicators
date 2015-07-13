@@ -33,16 +33,26 @@
                                     <constraint firstAttribute="height" constant="50" id="yTA-m1-d2s"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JgR-hP-jLO" customClass="GLSBouncingBarsActivityIndicatorView" customModule="activityindicators" customModuleProvider="target">
+                                <rect key="frame" x="275" y="195" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gTH-go-iNU"/>
+                                    <constraint firstAttribute="width" constant="50" id="lDO-e5-gXu"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VpZ-pS-95n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8XI-Tg-dcJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9db-kS-48C" secondAttribute="trailing" constant="162" id="DEp-W1-VwX"/>
                             <constraint firstItem="9db-kS-48C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="INv-B2-YmN"/>
+                            <constraint firstItem="JgR-hP-jLO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LkH-LA-Lpm"/>
                             <constraint firstItem="9db-kS-48C" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LwR-i7-tfE"/>
                             <constraint firstItem="9db-kS-48C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="163" id="XX8-pk-2OP"/>
                             <constraint firstAttribute="topMargin" secondItem="9db-kS-48C" secondAttribute="top" id="bQ9-SU-Biv"/>
                             <constraint firstItem="9db-kS-48C" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="c7L-s4-Kll"/>
+                            <constraint firstItem="9db-kS-48C" firstAttribute="top" secondItem="JgR-hP-jLO" secondAttribute="bottom" constant="30" id="oCg-7R-dnR"/>
                             <constraint firstItem="VpZ-pS-95n" firstAttribute="top" secondItem="9db-kS-48C" secondAttribute="bottom" constant="30" id="uqG-kZ-8DU"/>
                         </constraints>
                         <variation key="default">
@@ -56,6 +66,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="9db-kS-48C" id="SOx-Py-YJO"/>
+                        <outlet property="bouncingBarsActivityInidicator" destination="JgR-hP-jLO" id="cg7-hN-wK5"/>
                         <outlet property="imageActivityIndicator" destination="VpZ-pS-95n" id="Buv-Za-oI5"/>
                     </connections>
                 </viewController>

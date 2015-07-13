@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var activityIndicator: GLSSpinActivityIndicatorView!
     @IBOutlet weak var imageActivityIndicator: GLSImageRotationsActivityIndicatorView!
-
+    @IBOutlet weak var bouncingBarsActivityInidicator: GLSBouncingBarsActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // arc spinner
@@ -22,6 +22,9 @@ class ViewController: UIViewController {
         self.imageActivityIndicator.backgroundColor = UIColor.whiteColor()
         self.imageActivityIndicator.startAnimating()
         
+        // bouncing bars
+        self.bouncingBarsActivityInidicator.color = UIColor.redColor()
+        self.bouncingBarsActivityInidicator.startAnimating()
     }
 
     override func didReceiveMemoryWarning() {

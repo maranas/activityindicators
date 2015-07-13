@@ -59,7 +59,6 @@ class GLSImageRotationsActivityIndicatorView: UIView {
         self.layer.hidden = false
         self.animating = true
         
-        self.animating = true
         self.layer.transform.m34 = 1.0 / -300
         
         self.yAnimation = CAKeyframeAnimation(keyPath:"transform.rotation.y")
@@ -94,7 +93,7 @@ class GLSImageRotationsActivityIndicatorView: UIView {
     }
     
     /**
-    Returns if the spin indicator is animating.
+    Returns if the rotation indicator is animating.
     
     *returns* - A boolean indicator if the animation is in progress.
     */

@@ -16,6 +16,7 @@
 		809D7DB81B51EF3500A462AF /* GLSSpinActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D7DB71B51EF3500A462AF /* GLSSpinActivityIndicatorView.swift */; };
 		80CA4CF11B54400B0058B20A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CA4CF01B54400B0058B20A /* logo.png */; };
 		80CA4CF31B54403D0058B20A /* GLSImageRotationsActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CA4CF21B54403D0058B20A /* GLSImageRotationsActivityIndicatorView.swift */; };
+		80CA4CF51B544BB00058B20A /* GLSBouncingBarsActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CA4CF41B544BB00058B20A /* GLSBouncingBarsActivityIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		809D7DB71B51EF3500A462AF /* GLSSpinActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLSSpinActivityIndicatorView.swift; path = Classes/GLSSpinActivityIndicatorView.swift; sourceTree = "<group>"; };
 		80CA4CF01B54400B0058B20A /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		80CA4CF21B54403D0058B20A /* GLSImageRotationsActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLSImageRotationsActivityIndicatorView.swift; path = Classes/GLSImageRotationsActivityIndicatorView.swift; sourceTree = "<group>"; };
+		80CA4CF41B544BB00058B20A /* GLSBouncingBarsActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLSBouncingBarsActivityIndicatorView.swift; path = Classes/GLSBouncingBarsActivityIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			children = (
 				809D7DB71B51EF3500A462AF /* GLSSpinActivityIndicatorView.swift */,
 				80CA4CF21B54403D0058B20A /* GLSImageRotationsActivityIndicatorView.swift */,
+				80CA4CF41B544BB00058B20A /* GLSBouncingBarsActivityIndicatorView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80CA4CF51B544BB00058B20A /* GLSBouncingBarsActivityIndicatorView.swift in Sources */,
 				80CA4CF31B54403D0058B20A /* GLSImageRotationsActivityIndicatorView.swift in Sources */,
 				809D7D951B51D6A500A462AF /* ViewController.swift in Sources */,
 				809D7DB81B51EF3500A462AF /* GLSSpinActivityIndicatorView.swift in Sources */,
