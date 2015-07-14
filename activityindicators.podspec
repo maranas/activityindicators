@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "activityindicators"
-  s.version      = "0.5"
+  s.version      = "0.6"
   s.summary      = "A bunch of drop-in replacements to UIActivityIndicatorView. In Swift!"
 
   s.description  = <<-DESC
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Moises" => "moises@ganglionsoftware.com" }
   s.platform     = :ios, '9.0'
-  s.source       = { :git => "https://github.com/maranas/activityindicators.git", :tag => "0.5" }
+  s.source       = { :git => "https://github.com/maranas/activityindicators.git", :tag => "0.6" }
   s.source_files  = "activityindicators/Classes"
   s.frameworks = 'UIKit'
 end
