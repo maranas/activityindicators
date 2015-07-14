@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		800817201B559F4300FC9D92 /* GLSZoomingDotsActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8008171F1B559F4300FC9D92 /* GLSZoomingDotsActivityIndicatorView.swift */; };
 		809D7D931B51D6A500A462AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D7D921B51D6A500A462AF /* AppDelegate.swift */; };
 		809D7D951B51D6A500A462AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809D7D941B51D6A500A462AF /* ViewController.swift */; };
 		809D7D981B51D6A500A462AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809D7D961B51D6A500A462AF /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8008171F1B559F4300FC9D92 /* GLSZoomingDotsActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLSZoomingDotsActivityIndicatorView.swift; path = Classes/GLSZoomingDotsActivityIndicatorView.swift; sourceTree = "<group>"; };
 		809D7D8F1B51D6A500A462AF /* activityindicators.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = activityindicators.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		809D7D921B51D6A500A462AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		809D7D941B51D6A500A462AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				809D7DB71B51EF3500A462AF /* GLSSpinActivityIndicatorView.swift */,
 				80CA4CF21B54403D0058B20A /* GLSImageRotationsActivityIndicatorView.swift */,
 				80CA4CF41B544BB00058B20A /* GLSBouncingBarsActivityIndicatorView.swift */,
+				8008171F1B559F4300FC9D92 /* GLSZoomingDotsActivityIndicatorView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			files = (
 				80CA4CF51B544BB00058B20A /* GLSBouncingBarsActivityIndicatorView.swift in Sources */,
 				80CA4CF31B54403D0058B20A /* GLSImageRotationsActivityIndicatorView.swift in Sources */,
+				800817201B559F4300FC9D92 /* GLSZoomingDotsActivityIndicatorView.swift in Sources */,
 				809D7D951B51D6A500A462AF /* ViewController.swift in Sources */,
 				809D7DB81B51EF3500A462AF /* GLSSpinActivityIndicatorView.swift in Sources */,
 				809D7D931B51D6A500A462AF /* AppDelegate.swift in Sources */,
