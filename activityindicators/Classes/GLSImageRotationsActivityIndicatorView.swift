@@ -8,6 +8,12 @@
 
 import UIKit
 
+/**
+**GLSImageRotationsActivityIndicatorView**
+
+A view that displays a rotating image activity indicator.
+*/
+
 class GLSImageRotationsActivityIndicatorView: UIView {
     private var animating : Bool = false
     private weak var imageView : UIImageView?

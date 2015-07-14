@@ -8,6 +8,12 @@
 
 import UIKit
 
+/**
+**GLSSpinActivityIndicatorView**
+
+A view that displays a customizable spinning arc activity indicator.
+*/
+
 class GLSSpinActivityIndicatorView: UIView {
     private var _color : UIColor? = UIColor.redColor()
     private var progressLayer : CAShapeLayer?

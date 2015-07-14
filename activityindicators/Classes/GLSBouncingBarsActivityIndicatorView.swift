@@ -8,6 +8,12 @@
 
 import UIKit
 
+/**
+**GLSBouncingBarsActivityIndicatorView**
+
+A view that displays bouncing bars as an activity indicator.
+*/
+
 class GLSBouncingBarsActivityIndicatorView: UIView {
     private var animating : Bool = false
     private var _color : UIColor? = UIColor.grayColor()
