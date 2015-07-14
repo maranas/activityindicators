@@ -8,6 +8,12 @@
 
 import UIKit
 
+/**
+**GLSZoomingDotsActivityIndicatorView**
+
+A view that displays a bunch of zooming dots as an activity indicator.
+*/
+
 class GLSZoomingDotsActivityIndicatorView: UIView {
 
     private var animating : Bool = false
