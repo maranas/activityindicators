@@ -49,12 +49,22 @@
                                     <constraint firstAttribute="height" constant="50" id="hr9-Qh-4NP"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7mX-wy-tQX" customClass="GLSRipplesActivityIndicator" customModule="activityindicators" customModuleProvider="target">
+                                <rect key="frame" x="175" y="375" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="7OA-LM-PvM"/>
+                                    <constraint firstAttribute="height" constant="50" id="ohP-tE-v4f"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dpg-rz-DnI" firstAttribute="leading" secondItem="JgR-hP-jLO" secondAttribute="trailing" constant="50" id="00P-7J-sEy"/>
+                            <constraint firstItem="7mX-wy-tQX" firstAttribute="top" secondItem="VpZ-pS-95n" secondAttribute="top" id="3sK-7U-z45"/>
                             <constraint firstItem="VpZ-pS-95n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8XI-Tg-dcJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9db-kS-48C" secondAttribute="trailing" constant="162" id="DEp-W1-VwX"/>
+                            <constraint firstItem="VpZ-pS-95n" firstAttribute="leading" secondItem="7mX-wy-tQX" secondAttribute="trailing" constant="50" id="EVy-c3-k4m"/>
                             <constraint firstItem="9db-kS-48C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="INv-B2-YmN"/>
                             <constraint firstItem="JgR-hP-jLO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LkH-LA-Lpm"/>
                             <constraint firstItem="9db-kS-48C" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LwR-i7-tfE"/>
@@ -78,6 +88,7 @@
                         <outlet property="activityIndicator" destination="9db-kS-48C" id="SOx-Py-YJO"/>
                         <outlet property="bouncingBarsActivityInidicator" destination="JgR-hP-jLO" id="cg7-hN-wK5"/>
                         <outlet property="imageActivityIndicator" destination="VpZ-pS-95n" id="Buv-Za-oI5"/>
+                        <outlet property="ripplesActivityIndicator" destination="7mX-wy-tQX" id="Vk0-oG-fIz"/>
                         <outlet property="zoomingDotsActivityIndicator" destination="dpg-rz-DnI" id="eee-58-GRv"/>
                     </connections>
                 </viewController>

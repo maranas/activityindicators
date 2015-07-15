@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicator: GLSSpinActivityIndicatorView!
     @IBOutlet weak var imageActivityIndicator: GLSImageRotationsActivityIndicatorView!
     @IBOutlet weak var bouncingBarsActivityInidicator: GLSBouncingBarsActivityIndicatorView!
-        @IBOutlet weak var zoomingDotsActivityIndicator: GLSZoomingDotsActivityIndicatorView!
+    @IBOutlet weak var zoomingDotsActivityIndicator: GLSZoomingDotsActivityIndicatorView!
+    @IBOutlet weak var ripplesActivityIndicator: GLSRipplesActivityIndicator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,10 @@ class ViewController: UIViewController {
         // zooming dots
         self.zoomingDotsActivityIndicator.color = UIColor.redColor()
         self.zoomingDotsActivityIndicator.startAnimating()
+        
+        // ripples
+        self.ripplesActivityIndicator.color = UIColor.redColor()
+        self.ripplesActivityIndicator.startAnimating()
     }
 
     override func didReceiveMemoryWarning() {

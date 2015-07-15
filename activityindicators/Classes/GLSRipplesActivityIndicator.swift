@@ -1,20 +1,14 @@
 //
-//  GLSZoomingDotsActivityIndicatorView.swift
+//  GLSRipplesActivityIndicator.swift
 //  activityindicators
 //
-//  Created by Moises Anthony Aranas on 7/14/15.
+//  Created by Moises Anthony Aranas on 7/15/15.
 //  Copyright © 2015 ganglion software. All rights reserved.
 //
 
 import UIKit
 
-/**
-**GLSZoomingDotsActivityIndicatorView**
-
-A view that displays a bunch of zooming dots as an activity indicator.
-*/
-
-class GLSZoomingDotsActivityIndicatorView: UIView {
+class GLSRipplesActivityIndicator: UIView {
 
     private var animating : Bool = false
     private var _color : UIColor? = UIColor.grayColor()
@@ -40,7 +34,7 @@ class GLSZoomingDotsActivityIndicatorView: UIView {
                 for index in 0...3
                 {
                     let currentBar : UIView = self.circles[index]
-                    currentBar.backgroundColor = unwrappedColor
+                    currentBar.layer.borderColor = unwrappedColor.CGColor
                 }
             }
         }
@@ -57,28 +51,28 @@ class GLSZoomingDotsActivityIndicatorView: UIView {
     }
     
     /**
-    Common initializer logic for the zooming circles indicator.
+    Common initializer logic for the ripples indicator.
     */
     private func commonInit() {
         self.backgroundColor = UIColor.clearColor()
-        let circleWidth = self.bounds.size.width / 5
+        let circleWidth = min(self.bounds.size.width,self.bounds.size.height);
         let circleHeight = circleWidth
-        let circleSpacing = circleWidth/3
         let cornerRadius = circleWidth/2
-        var currX : CGFloat = 0.0
-        let currY : CGFloat = (self.bounds.size.height - circleHeight)/2
+        let borderWidth = (circleWidth * 0.2)
         for _ in 0...3
         {
-            let currView : UIView = UIView(frame: CGRectMake(currX, currY, circleWidth, circleHeight))
+            let currView : UIView = UIView(frame: CGRectMake(0, 0, circleWidth, circleHeight))
+            currView.backgroundColor = UIColor.clearColor()
             currView.layer.cornerRadius = cornerRadius
+            currView.layer.borderColor = UIColor.grayColor().CGColor
+            currView.layer.borderWidth = borderWidth
             self.circles.append(currView)
-            currX += circleWidth + circleSpacing
             self.addSubview(currView)
         }
     }
     
     /**
-    Starts the zooming circles animation.
+    Starts the ripples animation.
     */
     func startAnimating() {
         if self.isAnimating()
@@ -96,6 +90,7 @@ class GLSZoomingDotsActivityIndicatorView: UIView {
             let currentCircle : UIView = self.circles[index]
             let animationX = CAKeyframeAnimation(keyPath: "transform.scale.x")
             let animationY = CAKeyframeAnimation(keyPath: "transform.scale.y")
+            let animationAlpha = CAKeyframeAnimation(keyPath: "opacity")
             var values : [Double] = []
             var startValue = animationMin
             for _ in 0...self.circles.count
@@ -110,6 +105,10 @@ class GLSZoomingDotsActivityIndicatorView: UIView {
             animationMin += animationDiffs
             animationX.values = values
             animationY.values = values
+            animationAlpha.values = values.map {
+                (let scaleVal) -> Double in
+                return 1.0 - scaleVal
+            }
             var animationStart = 0.0
             var keyFrames : [Double] = []
             for _ in 0...self.circles.count
@@ -120,21 +119,28 @@ class GLSZoomingDotsActivityIndicatorView: UIView {
             animationX.keyTimes = keyFrames
             animationX.calculationMode = kCAAnimationPaced
             animationX.repeatCount = Float.infinity
-            animationX.duration = 0.5
+            animationX.duration = 3.0
             animationX.autoreverses = true
             currentCircle.layer.addAnimation(animationX, forKey: "animationX\(index)")
-
+            
             animationY.keyTimes = keyFrames
             animationY.calculationMode = kCAAnimationPaced
             animationY.repeatCount = Float.infinity
-            animationY.duration = 0.5
+            animationY.duration = 3.0
             animationY.autoreverses = true
             currentCircle.layer.addAnimation(animationY, forKey: "animationY\(index)")
+            
+            animationAlpha.keyTimes = keyFrames
+            animationAlpha.calculationMode = kCAAnimationPaced
+            animationAlpha.repeatCount = Float.infinity
+            animationAlpha.duration = 3.0
+            animationAlpha.autoreverses = true
+            currentCircle.layer.addAnimation(animationAlpha, forKey: "animationAlpha\(index)")
         }
     }
     
     /**
-    Stops the zooming circles animation.
+    Stops the ripples animation.
     */
     func stopAnimating() {
         if !self.isAnimating()
@@ -151,7 +157,7 @@ class GLSZoomingDotsActivityIndicatorView: UIView {
     }
     
     /**
-    Returns if the zooming circles is animating.
+    Returns if the ripples is animating.
     
     *returns* - A boolean indicator if the animation is in progress.
     */
@@ -161,17 +167,13 @@ class GLSZoomingDotsActivityIndicatorView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let circleWidth = self.bounds.size.width / 5
+        let circleWidth = min(self.bounds.size.width,self.bounds.size.height);
         let circleHeight = circleWidth
-        let circleSpacing = circleWidth/3
         let cornerRadius = circleWidth/2
-        var currX : CGFloat = 0.0
-        let currY : CGFloat = (self.bounds.size.height - circleHeight)/2
         for index in 0...3
         {
             let currentCircle : UIView = self.circles[index]
-            currentCircle.frame = CGRectMake(currX, currY, circleWidth, circleHeight)
-            currX += circleWidth + circleSpacing
+            currentCircle.frame = CGRectMake(0, 0, circleWidth, circleHeight)
             currentCircle.layer.cornerRadius = cornerRadius
         }
     }
