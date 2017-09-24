@@ -15,8 +15,8 @@ A view that displays bouncing bars as an activity indicator.
 */
 
 class GLSBouncingBarsActivityIndicatorView: UIView {
-    private var animating : Bool = false
-    private var _color : UIColor? = UIColor.grayColor()
+    fileprivate var animating : Bool = false
+    fileprivate var _color : UIColor? = UIColor.gray
     
     /**
     If true, the activity indicator becomes hidden when stopped.
@@ -58,8 +58,8 @@ class GLSBouncingBarsActivityIndicatorView: UIView {
     /**
     Common initializer logic for the bouncing bars indicator.
     */
-    private func commonInit() {
-        self.backgroundColor = UIColor.clearColor()
+    fileprivate func commonInit() {
+        self.backgroundColor = UIColor.clear
         let barWidth = self.bounds.size.width / 5
         let barHeight = self.bounds.size.height
         let barSpacing = barWidth/3
@@ -67,7 +67,7 @@ class GLSBouncingBarsActivityIndicatorView: UIView {
         let currY : CGFloat = 0.0
         for _ in 0...3
         {
-            let currView : UIView = UIView(frame: CGRectMake(currX, currY, barWidth, barHeight))
+            let currView : UIView = UIView(frame: CGRect(x: currX, y: currY, width: barWidth, height: barHeight))
             self.bars.append(currView)
             currX += barWidth + barSpacing
             self.addSubview(currView)
@@ -82,7 +82,7 @@ class GLSBouncingBarsActivityIndicatorView: UIView {
         {
             return
         }
-        self.layer.hidden = false
+        self.layer.isHidden = false
         self.animating = true
         
         var animationMin = 0.2
@@ -112,12 +112,12 @@ class GLSBouncingBarsActivityIndicatorView: UIView {
                 keyFrames.append(animationStart)
                 animationStart += animationKeyframeDiffs
             }
-            animation.keyTimes = keyFrames
+            animation.keyTimes = keyFrames as [NSNumber]
             animation.calculationMode = kCAAnimationPaced
             animation.repeatCount = Float.infinity
             animation.duration = 0.5
             animation.autoreverses = true
-            currentBar.layer.addAnimation(animation, forKey: "animation\(index)")
+            currentBar.layer.add(animation, forKey: "animation\(index)")
         }
     }
     
@@ -130,7 +130,7 @@ class GLSBouncingBarsActivityIndicatorView: UIView {
             return
         }
         self.animating = false
-        self.layer.hidden = self.hidesWhenStopped
+        self.layer.isHidden = self.hidesWhenStopped
         for index in 0...3
         {
             let currentBar : UIView = self.bars[index]
@@ -157,7 +157,7 @@ class GLSBouncingBarsActivityIndicatorView: UIView {
         for index in 0...3
         {
             let currentBar : UIView = self.bars[index]
-            currentBar.frame = CGRectMake(currX, currY, barWidth, barHeight)
+            currentBar.frame = CGRect(x: currX, y: currY, width: barWidth, height: barHeight)
             currX += barWidth + barSpacing
         }
     }

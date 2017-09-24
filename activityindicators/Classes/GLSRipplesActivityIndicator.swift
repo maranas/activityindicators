@@ -10,8 +10,8 @@ import UIKit
 
 class GLSRipplesActivityIndicator: UIView {
 
-    private var animating : Bool = false
-    private var _color : UIColor? = UIColor.grayColor()
+    fileprivate var animating : Bool = false
+    fileprivate var _color : UIColor? = UIColor.gray
     
     /**
     If true, the activity indicator becomes hidden when stopped.
@@ -34,7 +34,7 @@ class GLSRipplesActivityIndicator: UIView {
                 for index in 0...3
                 {
                     let currentBar : UIView = self.circles[index]
-                    currentBar.layer.borderColor = unwrappedColor.CGColor
+                    currentBar.layer.borderColor = unwrappedColor.cgColor
                 }
             }
         }
@@ -53,18 +53,18 @@ class GLSRipplesActivityIndicator: UIView {
     /**
     Common initializer logic for the ripples indicator.
     */
-    private func commonInit() {
-        self.backgroundColor = UIColor.clearColor()
+    fileprivate func commonInit() {
+        self.backgroundColor = UIColor.clear
         let circleWidth = min(self.bounds.size.width,self.bounds.size.height);
         let circleHeight = circleWidth
         let cornerRadius = circleWidth/2
         let borderWidth = (circleWidth * 0.2)
         for _ in 0...3
         {
-            let currView : UIView = UIView(frame: CGRectMake(0, 0, circleWidth, circleHeight))
-            currView.backgroundColor = UIColor.clearColor()
+            let currView : UIView = UIView(frame: CGRect(x: 0, y: 0, width: circleWidth, height: circleHeight))
+            currView.backgroundColor = UIColor.clear
             currView.layer.cornerRadius = cornerRadius
-            currView.layer.borderColor = UIColor.grayColor().CGColor
+            currView.layer.borderColor = UIColor.gray.cgColor
             currView.layer.borderWidth = borderWidth
             self.circles.append(currView)
             self.addSubview(currView)
@@ -79,7 +79,7 @@ class GLSRipplesActivityIndicator: UIView {
         {
             return
         }
-        self.layer.hidden = false
+        self.layer.isHidden = false
         self.animating = true
         
         var animationMin = 0.2
@@ -106,7 +106,7 @@ class GLSRipplesActivityIndicator: UIView {
             animationX.values = values
             animationY.values = values
             animationAlpha.values = values.map {
-                (let scaleVal) -> Double in
+                (scaleVal) -> Double in
                 return 1.0 - scaleVal
             }
             var animationStart = 0.0
@@ -116,26 +116,26 @@ class GLSRipplesActivityIndicator: UIView {
                 keyFrames.append(animationStart)
                 animationStart += animationKeyframeDiffs
             }
-            animationX.keyTimes = keyFrames
+            animationX.keyTimes = keyFrames as [NSNumber]
             animationX.calculationMode = kCAAnimationPaced
             animationX.repeatCount = Float.infinity
             animationX.duration = 3.0
             animationX.autoreverses = true
-            currentCircle.layer.addAnimation(animationX, forKey: "animationX\(index)")
+            currentCircle.layer.add(animationX, forKey: "animationX\(index)")
             
-            animationY.keyTimes = keyFrames
+            animationY.keyTimes = keyFrames as [NSNumber]
             animationY.calculationMode = kCAAnimationPaced
             animationY.repeatCount = Float.infinity
             animationY.duration = 3.0
             animationY.autoreverses = true
-            currentCircle.layer.addAnimation(animationY, forKey: "animationY\(index)")
+            currentCircle.layer.add(animationY, forKey: "animationY\(index)")
             
-            animationAlpha.keyTimes = keyFrames
+            animationAlpha.keyTimes = keyFrames as [NSNumber]
             animationAlpha.calculationMode = kCAAnimationPaced
             animationAlpha.repeatCount = Float.infinity
             animationAlpha.duration = 3.0
             animationAlpha.autoreverses = true
-            currentCircle.layer.addAnimation(animationAlpha, forKey: "animationAlpha\(index)")
+            currentCircle.layer.add(animationAlpha, forKey: "animationAlpha\(index)")
         }
     }
     
@@ -148,7 +148,7 @@ class GLSRipplesActivityIndicator: UIView {
             return
         }
         self.animating = false
-        self.layer.hidden = self.hidesWhenStopped
+        self.layer.isHidden = self.hidesWhenStopped
         for index in 0...3
         {
             let currentCircle : UIView = self.circles[index]
@@ -173,7 +173,7 @@ class GLSRipplesActivityIndicator: UIView {
         for index in 0...3
         {
             let currentCircle : UIView = self.circles[index]
-            currentCircle.frame = CGRectMake(0, 0, circleWidth, circleHeight)
+            currentCircle.frame = CGRect(x: 0, y: 0, width: circleWidth, height: circleHeight)
             currentCircle.layer.cornerRadius = cornerRadius
         }
     }

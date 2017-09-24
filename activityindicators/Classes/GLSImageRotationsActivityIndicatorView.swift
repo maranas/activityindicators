@@ -15,10 +15,10 @@ A view that displays a rotating image activity indicator.
 */
 
 class GLSImageRotationsActivityIndicatorView: UIView {
-    private var animating : Bool = false
-    private weak var imageView : UIImageView?
-    private var yAnimation : CAKeyframeAnimation?
-    private var xAnimation : CAKeyframeAnimation?
+    fileprivate var animating : Bool = false
+    fileprivate weak var imageView : UIImageView?
+    fileprivate var yAnimation : CAKeyframeAnimation?
+    fileprivate var xAnimation : CAKeyframeAnimation?
     
     /**
     If true, the activity indicator becomes hidden when stopped.
@@ -38,7 +38,7 @@ class GLSImageRotationsActivityIndicatorView: UIView {
     /**
     Common initializer logic for the spin indicator.
     */
-    private func commonInit() {
+    fileprivate func commonInit() {
         let imageView = UIImageView(frame: self.bounds)
         self.addSubview(imageView)
         self.imageView = imageView
@@ -49,7 +49,7 @@ class GLSImageRotationsActivityIndicatorView: UIView {
     
     *image* - A UIImage to use for the progress indicator.
     */
-    func setImage(image:UIImage)
+    func setImage(_ image:UIImage)
     {
         self.imageView?.image = image
     }
@@ -62,18 +62,18 @@ class GLSImageRotationsActivityIndicatorView: UIView {
         {
             return
         }
-        self.layer.hidden = false
+        self.layer.isHidden = false
         self.animating = true
         
         self.layer.transform.m34 = 1.0 / -300
         
         self.yAnimation = CAKeyframeAnimation(keyPath:"transform.rotation.y")
-        self.yAnimation?.values = [0, M_PI, M_PI, 2*M_PI, 2*M_PI]
+        self.yAnimation?.values = [0, Double.pi, Double.pi, 2*Double.pi, 2*Double.pi]
         self.yAnimation?.keyTimes = [0, 0.2, 0.4, 0.8, 1.0]
         self.yAnimation?.calculationMode = kCAAnimationLinear
         
         self.xAnimation = CAKeyframeAnimation(keyPath:"transform.rotation.x")
-        self.xAnimation?.values = [0, 0, M_PI, M_PI, 2*M_PI]
+        self.xAnimation?.values = [0, 0, Double.pi, Double.pi, 2*Double.pi]
         self.xAnimation?.keyTimes = [0, 0.2, 0.4, 0.8, 1.0]
         self.xAnimation?.calculationMode = kCAAnimationLinear
         
@@ -82,7 +82,7 @@ class GLSImageRotationsActivityIndicatorView: UIView {
         animationGroup.duration = 3.0
         animationGroup.repeatCount = Float.infinity
         
-        self.layer.addAnimation(animationGroup, forKey: "rotation")
+        self.layer.add(animationGroup, forKey: "rotation")
     }
     
     /**
@@ -94,7 +94,7 @@ class GLSImageRotationsActivityIndicatorView: UIView {
             return
         }
         self.animating = false
-        self.layer.hidden = self.hidesWhenStopped
+        self.layer.isHidden = self.hidesWhenStopped
         self.layer.removeAllAnimations()
     }
     

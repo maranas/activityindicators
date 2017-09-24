@@ -16,8 +16,8 @@ A view that displays a bunch of zooming dots as an activity indicator.
 
 class GLSZoomingDotsActivityIndicatorView: UIView {
 
-    private var animating : Bool = false
-    private var _color : UIColor? = UIColor.grayColor()
+    fileprivate var animating : Bool = false
+    fileprivate var _color : UIColor? = UIColor.gray
     
     /**
     If true, the activity indicator becomes hidden when stopped.
@@ -59,8 +59,8 @@ class GLSZoomingDotsActivityIndicatorView: UIView {
     /**
     Common initializer logic for the zooming circles indicator.
     */
-    private func commonInit() {
-        self.backgroundColor = UIColor.clearColor()
+    fileprivate func commonInit() {
+        self.backgroundColor = UIColor.clear
         let circleWidth = self.bounds.size.width / 5
         let circleHeight = circleWidth
         let circleSpacing = circleWidth/3
@@ -69,7 +69,7 @@ class GLSZoomingDotsActivityIndicatorView: UIView {
         let currY : CGFloat = (self.bounds.size.height - circleHeight)/2
         for _ in 0...3
         {
-            let currView : UIView = UIView(frame: CGRectMake(currX, currY, circleWidth, circleHeight))
+            let currView : UIView = UIView(frame: CGRect(x: currX, y: currY, width: circleWidth, height: circleHeight))
             currView.layer.cornerRadius = cornerRadius
             self.circles.append(currView)
             currX += circleWidth + circleSpacing
@@ -85,7 +85,7 @@ class GLSZoomingDotsActivityIndicatorView: UIView {
         {
             return
         }
-        self.layer.hidden = false
+        self.layer.isHidden = false
         self.animating = true
         
         var animationMin = 0.2
@@ -117,19 +117,19 @@ class GLSZoomingDotsActivityIndicatorView: UIView {
                 keyFrames.append(animationStart)
                 animationStart += animationKeyframeDiffs
             }
-            animationX.keyTimes = keyFrames
+            animationX.keyTimes = keyFrames as [NSNumber]
             animationX.calculationMode = kCAAnimationPaced
             animationX.repeatCount = Float.infinity
             animationX.duration = 0.5
             animationX.autoreverses = true
-            currentCircle.layer.addAnimation(animationX, forKey: "animationX\(index)")
+            currentCircle.layer.add(animationX, forKey: "animationX\(index)")
 
-            animationY.keyTimes = keyFrames
+            animationY.keyTimes = keyFrames as [NSNumber]
             animationY.calculationMode = kCAAnimationPaced
             animationY.repeatCount = Float.infinity
             animationY.duration = 0.5
             animationY.autoreverses = true
-            currentCircle.layer.addAnimation(animationY, forKey: "animationY\(index)")
+            currentCircle.layer.add(animationY, forKey: "animationY\(index)")
         }
     }
     
@@ -142,7 +142,7 @@ class GLSZoomingDotsActivityIndicatorView: UIView {
             return
         }
         self.animating = false
-        self.layer.hidden = self.hidesWhenStopped
+        self.layer.isHidden = self.hidesWhenStopped
         for index in 0...3
         {
             let currentCircle : UIView = self.circles[index]
@@ -170,7 +170,7 @@ class GLSZoomingDotsActivityIndicatorView: UIView {
         for index in 0...3
         {
             let currentCircle : UIView = self.circles[index]
-            currentCircle.frame = CGRectMake(currX, currY, circleWidth, circleHeight)
+            currentCircle.frame = CGRect(x: currX, y: currY, width: circleWidth, height: circleHeight)
             currX += circleWidth + circleSpacing
             currentCircle.layer.cornerRadius = cornerRadius
         }

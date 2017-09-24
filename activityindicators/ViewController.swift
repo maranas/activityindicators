@@ -22,19 +22,19 @@ class ViewController: UIViewController {
         
         // image rotator
         self.imageActivityIndicator.setImage(UIImage(named: "logo.png")!)
-        self.imageActivityIndicator.backgroundColor = UIColor.whiteColor()
+        self.imageActivityIndicator.backgroundColor = UIColor.white
         self.imageActivityIndicator.startAnimating()
         
         // bouncing bars
-        self.bouncingBarsActivityInidicator.color = UIColor.redColor()
+        self.bouncingBarsActivityInidicator.color = UIColor.red
         self.bouncingBarsActivityInidicator.startAnimating()
         
         // zooming dots
-        self.zoomingDotsActivityIndicator.color = UIColor.redColor()
+        self.zoomingDotsActivityIndicator.color = UIColor.red
         self.zoomingDotsActivityIndicator.startAnimating()
         
         // ripples
-        self.ripplesActivityIndicator.color = UIColor.redColor()
+        self.ripplesActivityIndicator.color = UIColor.red
         self.ripplesActivityIndicator.startAnimating()
     }
 

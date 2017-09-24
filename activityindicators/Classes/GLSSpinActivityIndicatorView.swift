@@ -15,12 +15,12 @@ A view that displays a customizable spinning arc activity indicator.
 */
 
 class GLSSpinActivityIndicatorView: UIView {
-    private var _color : UIColor? = UIColor.redColor()
-    private var progressLayer : CAShapeLayer?
-    private var progressPath : CAShapeLayer?
-    private var animating : Bool = false
-    private var animation : CABasicAnimation?
-    private var hideSpinnerPath : Bool = false
+    fileprivate var _color : UIColor? = UIColor.red
+    fileprivate var progressLayer : CAShapeLayer?
+    fileprivate var progressPath : CAShapeLayer?
+    fileprivate var animating : Bool = false
+    fileprivate var animation : CABasicAnimation?
+    fileprivate var hideSpinnerPath : Bool = false
     
     /**
     If true, the activity indicator becomes hidden when stopped.
@@ -39,8 +39,8 @@ class GLSSpinActivityIndicatorView: UIView {
         {
             _color = newValue
             if let unwrappedColor = _color {
-                self.progressLayer?.strokeColor = unwrappedColor.CGColor
-                self.progressPath?.strokeColor = unwrappedColor.colorWithAlphaComponent(0.2).CGColor
+                self.progressLayer?.strokeColor = unwrappedColor.cgColor
+                self.progressPath?.strokeColor = unwrappedColor.withAlphaComponent(0.2).cgColor
             }
         }
     }
@@ -58,30 +58,30 @@ class GLSSpinActivityIndicatorView: UIView {
     /**
     Common initializer logic for the spin indicator.
     */
-    private func commonInit() {
-        self.backgroundColor = UIColor.clearColor()
-        let arcCenter = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
-        let radius = min(CGRectGetMaxX(self.bounds), CGRectGetMaxY(self.bounds))/2
-        let circlePath = UIBezierPath(arcCenter: arcCenter, radius: radius, startAngle: CGFloat(0), endAngle: CGFloat(2*M_PI), clockwise: true)
+    fileprivate func commonInit() {
+        self.backgroundColor = UIColor.clear
+        let arcCenter = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+        let radius = min(self.bounds.maxX, self.bounds.maxY)/2
+        let circlePath = UIBezierPath(arcCenter: arcCenter, radius: radius, startAngle: CGFloat(0), endAngle: CGFloat(2*Double.pi), clockwise: true)
         self.progressLayer = CAShapeLayer()
         self.progressLayer?.frame = self.layer.bounds
-        self.progressLayer?.path = circlePath.CGPath
-        self.progressLayer?.fillColor = UIColor.clearColor().CGColor
+        self.progressLayer?.path = circlePath.cgPath
+        self.progressLayer?.fillColor = UIColor.clear.cgColor
         self.progressLayer?.lineWidth = 6.0
         self.progressLayer?.strokeStart = 0.0
         self.progressLayer?.strokeEnd = 0.3
         
         // background path
         self.progressPath = CAShapeLayer()
-        self.progressPath?.path = circlePath.CGPath
+        self.progressPath?.path = circlePath.cgPath
         self.progressPath?.frame = self.layer.bounds
-        self.progressPath?.fillColor = UIColor.clearColor().CGColor
+        self.progressPath?.fillColor = UIColor.clear.cgColor
         self.progressPath?.lineWidth = 6.0
         
         // color
         if let unwrappedColor = _color {
-            self.progressLayer?.strokeColor = unwrappedColor.CGColor
-            self.progressPath?.strokeColor = unwrappedColor.colorWithAlphaComponent(0.2).CGColor
+            self.progressLayer?.strokeColor = unwrappedColor.cgColor
+            self.progressPath?.strokeColor = unwrappedColor.withAlphaComponent(0.2).cgColor
         }
         
         self.layer.addSublayer(self.progressPath!)
@@ -93,7 +93,7 @@ class GLSSpinActivityIndicatorView: UIView {
     
     *arcSize* - A CGFloat from 0.0 to 1.0.
     */
-    func setSpinningArcSize(arcSize:CGFloat) {
+    func setSpinningArcSize(_ arcSize:CGFloat) {
         self.progressLayer?.strokeEnd = arcSize
     }
     
@@ -102,9 +102,9 @@ class GLSSpinActivityIndicatorView: UIView {
     
     *showPath* - A boolean that indicates the path's visibility.
     */
-    func showArcPath(showPath:Bool) {
+    func showArcPath(_ showPath:Bool) {
         self.hideSpinnerPath = !showPath
-        self.progressPath?.hidden = !showPath
+        self.progressPath?.isHidden = !showPath
     }
     
     /**
@@ -112,7 +112,7 @@ class GLSSpinActivityIndicatorView: UIView {
     
     *arcWidth* - A CGFloat to use as width for drawing the indicator.
     */
-    func setArcWidth(arcWidth:CGFloat) {
+    func setArcWidth(_ arcWidth:CGFloat) {
         self.progressLayer?.lineWidth = arcWidth
         self.progressPath?.lineWidth = arcWidth
     }
@@ -125,20 +125,20 @@ class GLSSpinActivityIndicatorView: UIView {
         {
             return
         }
-        self.progressLayer?.hidden = false
+        self.progressLayer?.isHidden = false
         if (!self.hideSpinnerPath)
         {
-            self.progressPath?.hidden = false
+            self.progressPath?.isHidden = false
         }
         self.animating = true
         self.animation = CABasicAnimation(keyPath:"transform.rotation.z")
         self.animation?.duration = 1.0
-        self.animation?.removedOnCompletion = false
+        self.animation?.isRemovedOnCompletion = false
         self.animation?.fromValue = 0.0
-        self.animation?.toValue = 2*M_PI
+        self.animation?.toValue = 2*Double.pi
         self.animation?.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         self.animation?.repeatCount = Float.infinity
-        self.progressLayer?.addAnimation(self.animation!, forKey: "progressAnimation")
+        self.progressLayer?.add(self.animation!, forKey: "progressAnimation")
 
     }
     
@@ -151,12 +151,12 @@ class GLSSpinActivityIndicatorView: UIView {
             return
         }
         self.animating = false
-        self.progressLayer?.hidden = self.hidesWhenStopped
+        self.progressLayer?.isHidden = self.hidesWhenStopped
         if (!self.hideSpinnerPath)
         {
-            self.progressPath?.hidden = self.hidesWhenStopped
+            self.progressPath?.isHidden = self.hidesWhenStopped
         }
-        self.progressLayer?.removeAnimationForKey("progressAnimation")
+        self.progressLayer?.removeAnimation(forKey: "progressAnimation")
     }
     
     /**
